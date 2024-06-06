@@ -1,0 +1,84 @@
+.navbar {
+    background-color: #f8f9fa; /* Light grey background */
+    border-bottom: 3px solid red;
+    box-shadow: 0 2px 4px red;
+}
+
+/* .navbar-brand, .nav-link {
+    color: red; 
+} */
+
+.navbar-brand:hover, .nav-link:hover {
+    color: #0056b3; /* Dark blue text on hover */
+}
+.navbar-nav{
+    gap: 20px;
+}
+.donate-now-btn{
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+.donate-now-btn:hover{
+background-color: red;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2834, 34, 34, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.navbar-collapse {
+    justify-content: flex-end; /* Align items to the right */
+}
+
+.navbar-nav .nav-link.active {
+    font-weight: bold; /* Bold text for active link */
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa; /* Light grey background for dropdown */
+}
+
+.dropdown-item {
+    color: #343a40;
+    /* Dark grey text for dropdown items */
+}
+
+.dropdown-item:hover {
+    background-color: #e9ecef; /* Light grey background on hover */
+    color: #0056b3; /* Dark blue text on hover */
+}
+
+.form-control {
+    border-radius: 0.25rem; /* Rounded corners for the search input */
+}
+
+.btn-outline-success {
+    color: #28a745; /* Green text for the button */
+    border-color: #28a745; /* Green border for the button */
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745; /* Green background on hover */
+    color: #fff; /* White text on hover */
+}
+img{
+    width: 120px;
+}
+.nav-item-1{
+    margin-right: 700px;
+}
+.container-fluid{
+    height: 100px;
+}
+a.nav-link.active{
+    margin-right: 200px;
+}
+
+        
+.nav-item3{
+    margin-right: 100px;
+}
+.dropdown-menu{
+    width: 20px;
+}

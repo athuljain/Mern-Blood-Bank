@@ -1,0 +1,86 @@
+/* Container for the login component */
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: #f8bfbf;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Style for the header */
+.h1-login {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* Container for the input fields and button */
+.login-input {
+    width: 350px;
+    padding: 40px;
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Style for the input fields */
+.login-input input[type="email"],
+.login-input input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+/* Focus state for the input fields */
+.login-input input[type="email"]:focus,
+.login-input input[type="password"]:focus {
+    border-color: #0066cc;
+    outline: none;
+}
+
+/* Style for the button */
+.login-input button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover state for the button */
+.login-input button:hover {
+    background-color: #004d99;
+}
+
+/* Style for the registration link */
+.log-reg {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Style for the anchor tag in the registration link */
+.log-reg a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hover state for the anchor tag */
+.log-reg a:hover {
+    text-decoration: underline;
+}
