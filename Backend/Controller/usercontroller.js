@@ -146,7 +146,50 @@ const userdon = async (req, res) => {
     }
 };
 
-module.exports = userdon;
+
+
+// const userreq = async (req, res) => {
+//     try {
+//         const { name, bloodGroup, requiredbloodgroup, Age, reason } = req.body;
+//         if (!name || !bloodGroup || !requiredbloodgroup || !Age || !reason) {
+//             return res.status(400).json({ message: 'Please fill in all fields' });
+//         }
+
+//         const bloodCompatibility = {
+//             'A+': ['A+', 'A-', 'O+', 'O-'],
+//             'A-': ['A-', 'O-'],
+//             'B+': ['B+', 'B-', 'O+', 'O-'],
+//             'B-': ['B-', 'O-'],
+//             'AB+': ['A+', 'B+', 'O+', 'AB+', 'A-', 'B-', 'O-', 'AB-'],
+//             'AB-': ['A-', 'B-', 'O-', 'AB-'],
+//             'O+': ['O+', 'O-'],
+//             'O-': ['O-']
+//         };
+
+//         if (!bloodCompatibility[requiredbloodgroup].includes(bloodGroup)) {
+//             return res.status(400).json({ message: 'Incompatible blood type' });
+//         }
+
+//         const newRequest = new Request ({
+//             name,
+//             bloodGroup,
+//             requiredbloodgroup,
+//             Age,
+//             reason,
+//             status: 'Pending'
+//         });
+
+//         await newRequest.save();
+        
+        
+     
+
+//         res.status(200).json({ message: 'Blood request successfully created' });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ message: 'Error in Requesting' });
+//     }
+// };
 
 const userreq = async (req, res) => {
     try {
@@ -155,6 +198,7 @@ const userreq = async (req, res) => {
             return res.status(400).json({ message: 'Please fill in all fields' });
         }
 
+        // Updated blood compatibility logic
         const bloodCompatibility = {
             'A+': ['A+', 'A-', 'O+', 'O-'],
             'A-': ['A-', 'O-'],
@@ -166,11 +210,12 @@ const userreq = async (req, res) => {
             'O-': ['O-']
         };
 
-        if (!bloodCompatibility[requiredbloodgroup].includes(bloodGroup)) {
+        // Check if the required blood group is compatible with the user's blood group
+        if (!bloodCompatibility[requiredbloodgroup] || !bloodCompatibility[requiredbloodgroup].includes(bloodGroup)) {
             return res.status(400).json({ message: 'Incompatible blood type' });
         }
 
-        const newRequest = new Request ({
+        const newRequest = new Request({
             name,
             bloodGroup,
             requiredbloodgroup,
@@ -180,9 +225,6 @@ const userreq = async (req, res) => {
         });
 
         await newRequest.save();
-        
-        
-     
 
         res.status(200).json({ message: 'Blood request successfully created' });
     } catch (error) {
@@ -190,6 +232,7 @@ const userreq = async (req, res) => {
         res.status(500).json({ message: 'Error in Requesting' });
     }
 };
+
 
 
 

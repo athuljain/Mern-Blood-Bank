@@ -19,8 +19,8 @@ mongoose.connect('mongodb://localhost:27017/bloodbank', {
 app.use(bodyParser.json());
 
 app.use(cors({
-    origin: 'http://localhost:3000',
-    // methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    origin: 'http://localhost:3000/',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
 }));
 
