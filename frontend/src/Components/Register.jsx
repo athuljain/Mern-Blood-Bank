@@ -37,11 +37,16 @@ function Register() {
         alert("Registration failed");
       }
     } catch (error) {
-      console.log(error.response.data);
-      if (error.response && error.response.status === 400 && error.response.data.message === 'Email is already registered') {
-        alert("Email is already registered");
+      if (error.response) {
+        console.log(error.response.data);
+        if (error.response.status === 400 && error.response.data.message === 'Email is already registered') {
+          alert("Email is already registered");
+        } else {
+          alert("Registration failed");
+        }
       } else {
-        alert("Registration failed");
+        console.error("Error:", error.message);
+        alert("Registration failed due to a network or server error");
       }
     }
   };
@@ -105,3 +110,4 @@ function Register() {
 }
 
 export default Register;
+

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState,useContext } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { mycontx } from './Context';
 import { Link } from 'react-router-dom';
@@ -8,7 +8,7 @@ import '../CSS/Login.css'
 
 export default function Login() {
     
-    const{email,setMail,password,setPassword,loguser,setLoguser}=useContext(mycontx);
+    const{email,setMail,password,setPassword}=useContext(mycontx);
 
     const nav=useNavigate()
     const log =async () =>{

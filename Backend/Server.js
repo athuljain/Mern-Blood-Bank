@@ -19,9 +19,9 @@ mongoose.connect('mongodb://localhost:27017/bloodbank', {
 app.use(bodyParser.json());
 
 app.use(cors({
-    origin: 'http://localhost:3000/',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
 const userRoute = require('./Routes/userroutes');
