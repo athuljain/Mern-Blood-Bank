@@ -3,13 +3,13 @@ import Navbar from './Navbar';
 import { useContext } from 'react';
 import '../CSS/Home.css'
 import motivation from '../Images/motivation.mp4';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { mycontx } from './Context';
 
 
 function Home() {
   const { loguser } = useContext(mycontx);
-  const nav=useNavigate
+  const nav=useNavigate()
   const handleDonateClick = () => {
     if (loguser) {
       nav('/Donate');
@@ -18,6 +18,9 @@ function Home() {
     }
   
   };
+  function handleRequestClick(){
+    nav("/Request")
+  }
   return (
     <div>
       <Navbar />
@@ -39,7 +42,7 @@ function Home() {
           <div className="card">
             <h2>Request Blood</h2>
             <p>Need blood? Submit a request and get help from our network.</p>
-            <button onClick={() => alert('Request Button Clicked')}>Request</button>
+            <button onClick={handleRequestClick}>Request</button>
           </div>
         </section>
 

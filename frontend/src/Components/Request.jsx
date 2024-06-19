@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Request= () => {
+    const nav=useNavigate()
     const [formData, setFormData] = useState({
         name: '',
         bloodGroup: '',
@@ -19,6 +21,7 @@ const Request= () => {
         try {
             const response = await axios.post('http://localhost:8000/user/request', formData);
             alert(response.data.message);
+            nav("/")
         } catch (error) {
             console.error(error);
             alert('Error creating blood request');
