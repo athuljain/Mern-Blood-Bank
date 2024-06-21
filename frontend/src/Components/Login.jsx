@@ -22,7 +22,7 @@ export default function Login() {
     });
     if(response.status===200){
       alert("Login successfuly");
-      nav("/")
+      nav("/Donate")
   }
   else{
       alert("login failed");
