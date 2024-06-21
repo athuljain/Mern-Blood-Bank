@@ -146,41 +146,37 @@ const userdon = async (req, res) => {
     }
 };
 
-
-
-const userreq = async (req, res) => {
+const userRequest = async (req, res) => {
     try {
-        const { name, bloodGroup, Age, reason } = req.body;
+        const { email, requiredbloodgroup, Age, reason } = req.body;
 
-        if (!name || !bloodGroup || !Age || !reason) {
+        if (!email || !requiredbloodgroup || !Age || !reason) {
             return res.status(400).json({ message: 'Please fill in all fields' });
         }
 
-        // Validate blood group
-        const validBloodGroups = ['O+', 'O-', 'AB+', 'AB-', 'A+', 'A-', 'B+', 'B-'];
-        if (!validBloodGroups.includes(bloodGroup)) {
-            return res.status(400).json({ message: 'Invalid blood group' });
+        let user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
         }
 
-        // Set required blood group to any valid blood group
-        const availableBloodGroups = validBloodGroups.filter(group => group !== bloodGroup);
-        const requiredbloodgroup = availableBloodGroups[Math.floor(Math.random() * availableBloodGroups.length)];
+        if (user.bloodGroup === requiredbloodgroup) {
+            return res.status(400).json({ message: 'You cannot request blood for the same blood group as yours' });
+        }
 
         const newRequest = new Request({
-            name,
-            bloodGroup,
+            name: user.name,
+            bloodGroup: user.bloodGroup,
             requiredbloodgroup,
             Age,
-            reason,
-            status: 'Pending'
+            reason
         });
 
         await newRequest.save();
 
-        res.status(200).json({ message: 'Blood request successfully created' });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Error in Requesting' });
+        res.status(201).json({ message: 'Blood request submitted successfully' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Error in submitting request' });
     }
 };
 
@@ -190,5 +186,6 @@ module.exports = {
     registerUser,
     userLogin,
     userdon,
-    userreq,
+    userRequest
+    // userreq,
 };

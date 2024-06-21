@@ -16,7 +16,7 @@ export default function Adminlogin() {
 
             if (response.status === 200) {
                 alert("Login successful");
-                nav("/adminpage");
+                nav("/admin");
             } else {
                 alert("Incorrect Credentials");
             }
