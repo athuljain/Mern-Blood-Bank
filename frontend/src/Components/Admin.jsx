@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../CSS/Admin.css';  
 
-const Admin= () => {
+const Admin = () => {
   const [users, setUsers] = useState([]);
   const [bloodCounts, setBloodCounts] = useState({});
   const [requests, setRequests] = useState([]);
@@ -62,11 +64,13 @@ const Admin= () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>All Users</h2>
       <ul>
         {users.map(user => (
-          <li key={user._id}>{user._id},{user.name}{user.email}{user.bloodGroup}{user.quantity}</li>
+          <li key={user._id}>
+           {user.name}, {user.email}, {user.bloodGroup}, {user.quantity}
+          </li>
         ))}
       </ul>
 
