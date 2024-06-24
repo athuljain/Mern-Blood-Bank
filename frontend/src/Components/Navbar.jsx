@@ -49,7 +49,7 @@ const Navbar = () => {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                     {
                       logUser.email ? (
-                        <li><a href="#" onClick={handleLogout} className='dropdown-item'>Logout</a></li>
+                        <li><a onClick={handleLogout} className='dropdown-item'>Logout</a></li>
                       ) : (
                         <>
                           <li><Link to={'/Login'} className='dropdown-item'>Login</Link></li>
