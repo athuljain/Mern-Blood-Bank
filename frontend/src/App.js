@@ -11,6 +11,7 @@ import Login from './Components/Login';
 import Request from './Components/Request';
 import Adminlogin from './Components/Adminlogin';
 import Admin from './Components/Admin';
+import About from './Components/About';
 
 function App() {
   const[email,setMail]=useState("");
@@ -33,6 +34,7 @@ function App() {
   <Route path='/Request' element={<Request/>}/>
   <Route path='/admlog' element={<Adminlogin/>}/>
   <Route path='/admin' element={<Admin/>}/>
+  <Route path='/about' element={<About />}/>
 
 </Routes>
 </mycontx.Provider>

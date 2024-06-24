@@ -16,7 +16,7 @@ const Navbar = () => {
   <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container-fluid">
         <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
-      <a className="navbar-brand" > <img src={logo} alt='logo'/><b> Anu's Blood Bank</b> </a>
+      <a className="navbar-brand" > <img src={logo} alt='logo'/><b> E-Blood Bank</b> </a>
       </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
@@ -31,7 +31,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <Link to={'/about'} style={{ textDecoration: 'none', color: 'inherit' }}>
               <a className="nav-link" href="#" style={{color:"black"}} ><b>About us </b></a>
             </Link>
 
