@@ -8,10 +8,11 @@ import { mycontx } from './Context';
 
 
 function Home() {
-  const { loguser } = useContext(mycontx);
+  const { logUser } = useContext(mycontx);
+  console.log("logUser",logUser.email);
   const nav=useNavigate()
   const handleDonateClick = () => {
-    if (loguser) {
+    if (logUser.email) {
       nav('/Donate');
     } else {
       alert('Please log in to donate.');

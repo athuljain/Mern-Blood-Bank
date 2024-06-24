@@ -18,7 +18,8 @@ function App() {
   const[password,setPassword]=useState("");
   const[confirm,setConfirm]=useState("");
   const[bloodGroup,setBlood]=useState("");
-  const values={email,setMail,name,setName,password,setPassword,confirm,setConfirm,bloodGroup,setBlood}
+  const [logUser,setLogUser]=useState([])
+  const values={email,setMail,name,setName,password,setPassword,confirm,setConfirm,bloodGroup,setBlood,logUser,setLogUser}
   return (
     <div className="App">
   

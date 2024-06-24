@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../CSS/Navbar.css'
 import logo from "../Images/download.png"
 import { FaUser } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { mycontx } from './Context';
 
 const Navbar = () => {
+  const {logUser, setLogUser}=useContext(mycontx)
+  const handleLogout = () => {
+    setLogUser({ email: '' });  // Clear the user email to log out
+  };
+
   return (
     <div>
   <nav className="navbar navbar-expand-lg navbar-light bg-white">
@@ -34,13 +40,19 @@ const Navbar = () => {
 </b>
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>< Link to={'/Login'} className='dropdown-item'>Login</Link></li>
-                <li>< Link to={'/Register'} className='dropdown-item'>Signup</Link></li>
-              
+                    {
+                      logUser.email ? (
+                        <li><a href="#" onClick={handleLogout} className='dropdown-item'>Logout</a></li>
+                      ) : (
+                        <>
+                          <li><Link to={'/Login'} className='dropdown-item'>Login</Link></li>
+                          <li><Link to={'/Register'} className='dropdown-item'>Signup</Link></li>
+                        </>
+                      )
+                    }
+                  </ul>
+                </li>
               </ul>
-            </li>
-           
-        </ul>
           </form>
         </div>
       </div>

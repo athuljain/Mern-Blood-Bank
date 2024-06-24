@@ -8,7 +8,10 @@ import '../CSS/Login.css'
 
 export default function Login() {
     
-    const{email,setMail,password,setPassword}=useContext(mycontx);
+    const{email,setMail,password,setPassword, setLogUser}=useContext(mycontx);
+
+    const LoginUser={email,password}
+    console.log("login Users",LoginUser);
 
     const nav=useNavigate()
     const log =async () =>{
@@ -16,13 +19,14 @@ export default function Login() {
       {
         alert("please fill all fields")
       }
+      setLogUser(LoginUser)
       try {
         const response =await axios.post("http://localhost:8000/user/login",{
         email,password
     });
     if(response.status===200){
       alert("Login successfuly");
-      nav("/Donate")
+      nav("/")
   }
   else{
       alert("login failed");
