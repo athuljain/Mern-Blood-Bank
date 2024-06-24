@@ -15,7 +15,9 @@ const Navbar = () => {
     <div>
   <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container-fluid">
-      <a className="navbar-brand" href="#"> <img src={logo} alt='logo'/><b> Anu's Blood Bank</b> </a>
+        <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+      <a className="navbar-brand" > <img src={logo} alt='logo'/><b> Anu's Blood Bank</b> </a>
+      </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -24,10 +26,15 @@ const Navbar = () => {
         <form className="d-flex">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#" style={{marginRight: "30px"}} >Home</a>
+          <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+              <a className="nav-link active" aria-current="page"  style={{marginRight: "30px"}} >Home</a>
+              </Link>
             </li>
             <li className="nav-item">
+              <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
               <a className="nav-link" href="#" style={{color:"black"}} ><b>About us </b></a>
+            </Link>
+
             </li>
             {/* <li className="nav-item">
             <button className="donate-now-btn">
