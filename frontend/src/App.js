@@ -32,7 +32,7 @@ function App() {
   <Route path='/Donate' element={<Donation/>}/>
   <Route path='/Login' element={<Login/>}/>
   <Route path='/Request' element={<Request/>}/>
-  <Route path='/admlog' element={<Adminlogin/>}/>
+  <Route path='/adminlogin' element={<Adminlogin/>}/>
   <Route path='/admin' element={<Admin/>}/>
   <Route path='/about' element={<About />}/>
 

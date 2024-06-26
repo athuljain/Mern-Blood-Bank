@@ -10,7 +10,7 @@ const BloodInventory = require('../Model/bloodinventorymodel');
 const Adminlogin = async (req, res) => {
     try {
         const { adminemail, adminpas } = req.body;
-        if (adminemail !== 'admin@123gmail.com' || adminpas !== 'admin123') {
+        if (adminemail !== 'admin123@gmail.com' || adminpas !== 'admin123') {
             throw new Error("Invalid email or password");
         }
         const token = jwt.sign({ email: adminemail }, process.env.JWT_SECRET, {

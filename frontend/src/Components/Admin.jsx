@@ -1,7 +1,9 @@
 
+
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../CSS/Admin.css';  
+import '../CSS/Admin.css';
 
 const Admin = () => {
   const [users, setUsers] = useState([]);
@@ -42,8 +44,19 @@ const Admin = () => {
       .then(response => {
         console.log(response.data);
         // Update requests after accepting
-        const updatedRequests = requests.filter(request => request._id !== requestId);
+        const updatedRequests = requests.map(request => 
+          request._id === requestId ? { ...request, status: 'Accepted' } : request
+        );
         setRequests(updatedRequests);
+
+        // Update blood counts
+        axios.get('http://localhost:8000/admin/blood-count')
+          .then(response => {
+            setBloodCounts(response.data);
+          })
+          .catch(error => {
+            console.error('Error fetching blood counts:', error);
+          });
       })
       .catch(error => {
         console.error('Error accepting request:', error);
@@ -69,7 +82,7 @@ const Admin = () => {
       <ul>
         {users.map(user => (
           <li key={user._id}>
-           {user.name}, {user.email}, {user.bloodGroup}, {user.quantity}
+            {user.name}, {user.email}, {user.bloodGroup}, {user.quantity}
           </li>
         ))}
       </ul>
@@ -86,7 +99,12 @@ const Admin = () => {
         {requests.map(request => (
           <li key={request._id}>
             {request.name} - {request.requiredbloodgroup}
-            <button onClick={() => acceptRequest(request._id)}>Accept</button>
+            <button 
+              onClick={() => acceptRequest(request._id)} 
+              disabled={request.status === 'Accepted'}
+            >
+              {request.status === 'Accepted' ? 'Accepted' : 'Accept'}
+            </button>
             <button onClick={() => deleteRequest(request._id)}>Delete</button>
           </li>
         ))}

@@ -159,9 +159,9 @@ const userRequest = async (req, res) => {
             return res.status(404).json({ message: 'User not found' });
         }
 
-        if (user.bloodGroup === requiredbloodgroup) {
-            return res.status(400).json({ message: 'You cannot request blood for the same blood group as yours' });
-        }
+        // if (user.bloodGroup === requiredbloodgroup) {
+        //     return res.status(400).json({ message: 'You cannot request blood for the same blood group as yours' });
+        // }
 
         const newRequest = new Request({
             name: user.name,
