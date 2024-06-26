@@ -1,133 +1,205 @@
 /* About.css */
-
-/* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-  }
-  
-  /* Container styles */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+  color: #333;
+}
+
+.about-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #e74c3c;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+section {
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  color: #3498db;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.introduction p,
+.mission-vision p,
+.features ul,
+.team ul,
+.testimonials blockquote,
+.call-to-action p,
+.contact p,
+.contact ul {
+  font-size: 1rem;
+  color: #666;
+}
+
+.features ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.features ul li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.features ul li::before {
+  content: '✔';
+  color: #27ae60;
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+}
+
+.team ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.team ul li {
+  margin-bottom: 0.5rem;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 5px solid #e74c3c;
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+.testimonials footer {
+  text-align: right;
+  color: #333;
+}
+
+.call-to-action a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.call-to-action a:hover {
+  text-decoration: underline;
+}
+
+.contact ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.contact ul li {
+  margin-bottom: 0.5rem;
+}
+
+.contact a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  color: #777;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .about-page {
-    /* 
-    
-    max-width: 800px; */
-    margin: 20px auto;
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    margin: 1rem;
   }
-  
-  /* Header styles */
-  .about-page header {
-    text-align: center;
-    margin-bottom: 20px;
+
+  header h1 {
+    font-size: 2rem;
   }
-  
-  .about-page header h1 {
-    color: #333333;
+
+  header p {
+    font-size: 1rem;
   }
-  
-  .about-page header p {
-    color: #666666;
+
+  section h2 {
+    font-size: 1.5rem;
   }
-  
-  /* Section styles */
-  .about-page section {
-    margin-bottom: 30px;
+
+  .introduction p,
+  .mission-vision p,
+  .features ul,
+  .team ul,
+  .testimonials blockquote,
+  .call-to-action p,
+  .contact p,
+  .contact ul {
+    font-size: 0.9rem;
   }
-  
-  .about-page section h2 {
-    color: #333333;
-    border-bottom: 2px solid #cccccc;
-    padding-bottom: 5px;
-    margin-bottom: 15px;
+
+  .features ul li::before {
+    top: 0.1rem;
   }
-  
-  .about-page section p {
-    color: #666666;
-    line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .about-page {
+    padding: 0.5rem;
+    margin: 0.5rem;
   }
-  
-  .about-page section ul {
-    list-style-type: none;
-    padding: 0;
+
+  header h1 {
+    font-size: 1.5rem;
   }
-  
-  .about-page section li {
-    margin-bottom: 10px;
+
+  header p {
+    font-size: 0.9rem;
   }
-  
-  .about-page section li strong {
-    color: #333333;
+
+  section h2 {
+    font-size: 1.2rem;
   }
-  
-  /* Testimonials styles */
-  .about-page blockquote {
-    background-color: #f9f9f9;
-    border-left: 5px solid #4caf50;
-    padding: 10px;
-    margin: 0;
+
+  .introduction p,
+  .mission-vision p,
+  .features ul,
+  .team ul,
+  .testimonials blockquote,
+  .call-to-action p,
+  .contact p,
+  .contact ul {
+    font-size: 0.8rem;
   }
-  
-  .about-page blockquote p {
-    font-style: italic;
-    color: #555555;
+
+  .features ul li::before {
+    top: 0;
   }
-  
-  .about-page blockquote footer {
-    margin-top: 5px;
-    font-weight: bold;
-    color: #777777;
-  }
-  
-  /* Call to action styles */
-  .about-page .call-to-action {
-    text-align: center;
-  }
-  
-  .about-page .call-to-action a {
-    color: #4caf50;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .about-page .call-to-action a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Contact section styles */
-  .about-page .contact ul {
-    padding-left: 0;
-  }
-  
-  .about-page .contact ul li {
-    margin-bottom: 5px;
-  }
-  
-  .about-page .contact a {
-    color: #0077cc;
-    text-decoration: none;
-  }
-  
-  .about-page .contact a:hover {
-    text-decoration: underline;
-  }
-  
-  /* Media queries for responsiveness */
-  @media (max-width: 600px) {
-    .about-page {
-      padding: 10px;
-    }
-    
-    .about-page section h2 {
-      font-size: 24px;
-    }
-    
-    .about-page blockquote {
-      font-size: 14px;
-    }
-  }
-  
+}
