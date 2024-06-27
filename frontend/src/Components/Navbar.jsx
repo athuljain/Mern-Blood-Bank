@@ -27,12 +27,12 @@ const Navbar = () => {
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
           <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <a className="nav-link active" aria-current="page"  style={{marginRight: "30px"}} >Home</a>
+              <a href='/' className="nav-link active" aria-current="page"  style={{marginRight: "30px"}} >Home</a>
               </Link>
             </li>
             <li className="nav-item">
               <Link to={'/about'} style={{ textDecoration: 'none', color: 'inherit' }}>
-              <a className="nav-link" href="#" style={{color:"black"}} ><b>About us </b></a>
+              <a href="/about" className="nav-link" href="#" style={{color:"black"}} ><b>About us </b></a>
             </Link>
 
             </li>

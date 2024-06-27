@@ -1,9 +1,13 @@
 import React from 'react';
 import '../CSS/About.css';
+import Navbar from './Navbar';
 
 const About = () => {
   return (
+    <>
+    <Navbar />
     <div className="about-page">
+     
       <header>
         <h1>About Us</h1>
         <p>Your trusted partner in saving lives through blood donation.</p>
@@ -58,6 +62,7 @@ const About = () => {
         </ul>
       </section>
     </div>
+    </>
   );
 };
 
