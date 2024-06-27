@@ -1,7 +1,9 @@
+
 // import React, { useState } from 'react';
 // import axios from 'axios';
 // import '../CSS/Donate.css';
 // import Navbar from './Navbar';
+// import { useNavigate } from 'react-router-dom';
 
 // export default function Donation() {
 //   const [formData, setFormData] = useState({
@@ -16,6 +18,12 @@
 //     dateofdonation: ''
 //   });
 
+
+//   const nav=useNavigate()
+
+
+
+
 //   const handleChange = (e) => {
 //     setFormData({
 //       ...formData,
@@ -28,9 +36,11 @@
 //     try {
 //       const response = await axios.post('http://localhost:8000/user/donate', formData);
 //       alert(response.data.message);
+//       nav("/")
 //     } catch (error) {
-//       console.error(error);
-//       alert('Error in Donating');
+//       console.error(error.response ? error.response.data : error.message);
+//       alert('Error in Donating: ' + (error.response ? error.response.data.message : error.message));
+//       nav("/")
 //     }
 //   };
 
@@ -93,6 +103,7 @@
 //   );
 // }
 
+
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../CSS/Donate.css';
@@ -112,11 +123,7 @@ export default function Donation() {
     dateofdonation: ''
   });
 
-
-  const nav=useNavigate()
-
-
-
+  const nav = useNavigate();
 
   const handleChange = (e) => {
     setFormData({
@@ -130,18 +137,18 @@ export default function Donation() {
     try {
       const response = await axios.post('http://localhost:8000/user/donate', formData);
       alert(response.data.message);
-      nav("/")
+      nav("/");
     } catch (error) {
       console.error(error.response ? error.response.data : error.message);
       alert('Error in Donating: ' + (error.response ? error.response.data.message : error.message));
-      nav("/")
+      nav("/");
     }
   };
 
   return (
     <div>
-      <Navbar/>
-      <h2 className='caption-hero'>Be a Hero for Those in Need</h2>
+      <Navbar />
+      <h2 className="caption-hero">Be a Hero for Those in Need</h2>
       <div className="donation-container">
         <form onSubmit={handleSubmit} className="donation-form">
           <div className="form-group">

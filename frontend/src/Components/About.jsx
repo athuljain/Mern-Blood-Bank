@@ -26,15 +26,15 @@ const About = () => {
           <li><strong>Security:</strong> Ensuring the highest standards of data protection and privacy.</li>
         </ul>
       </section>
-      <section className="team">
+      {/* <section className="team">
         <h2>Our Team</h2>
         <p>Meet the dedicated individuals behind E-Blood Bank:</p>
         <ul>
-          <li><strong>John Doe:</strong> Project Lead</li>
+          <li><strong>John :</strong> Project Lead</li>
           <li><strong>Jane Smith:</strong> Developer</li>
           <li><strong>Mark Johnson:</strong> UX/UI Designer</li>
         </ul>
-      </section>
+      </section> */}
       <section className="testimonials">
         <h2>Testimonials</h2>
         <blockquote>

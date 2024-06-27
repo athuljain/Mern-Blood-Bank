@@ -1,0 +1,81 @@
+/* Adminlogin.css */
+
+.admin-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f44336, #e57373);
+    color: #fff;
+    padding: 20px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .heading {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    color: white;
+  }
+  
+  .admin-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .admin-input:focus {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    outline: none;
+  }
+  
+  .admin-button {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 20px 0;
+    background: #fff;
+    color: #f44336;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  .admin-button:hover {
+    background: #f44336;
+    color: #fff;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-form-container {
+      padding: 10px;
+    }
+  
+    .heading {
+      font-size: 2em;
+    }
+  
+    .admin-input,
+    .admin-button {
+      font-size: 1em;
+      padding: 10px;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

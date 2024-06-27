@@ -1,78 +1,109 @@
 /* Admin.css */
 
-/* Basic reset for margins and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
+.container {
+  font-family: 'Arial', sans-serif;
+  color: #333;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+h2 {
+  font-size: 2em;
+  color: #f44336;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.all-users {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.all-users li {
+  flex: 1 1 calc(33.333% - 20px);
+  font-size: 1.1em;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: slideUp 1s ease-in-out;
+}
+
+.all-users li p {
+  margin: 5px 0;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled) {
+  background-color: #f44336;
+  color: white;
+}
+
+button:not(:disabled):hover {
+  background-color: #d32f2f;
+}
+
+@media (max-width: 768px) {
   .container {
-    width: 90%;
-    margin: 0 auto;
-    max-width: 1200px;
-    padding: 20px;
-  }
-  
-  h2 {
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
-  
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .all-users li {
+    flex: 1 1 calc(100% - 20px);
+    font-size: 1em;
+    padding: 15px;
+  }
+
   button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    border: none;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 3px;
+    padding: 8px 12px;
+    font-size: 0.9em;
   }
-  
-  button:hover {
-    background-color: #0056b3;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-  
-  @media (max-width: 768px) {
-    .container {
-      padding: 10px;
-    }
-  
-    li {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    button {
-      margin-top: 5px;
-    }
+  to {
+    opacity: 1;
   }
-  
-  @media (max-width: 480px) {
-    h2 {
-      font-size: 1.2rem;
-    }
-  
-    button {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0;
-    }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
   }
-  
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

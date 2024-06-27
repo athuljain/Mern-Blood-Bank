@@ -79,10 +79,13 @@ const Admin = () => {
   return (
     <div className="container">
       <h2>All Users</h2>
-      <ul>
+      <ul className="all-users">
         {users.map(user => (
           <li key={user._id}>
-            {user.name}, {user.email}, {user.bloodGroup}, {user.quantity}
+            <p><strong>Name:</strong> {user.name}</p>
+            <p><strong>Email:</strong> {user.email}</p>
+            <p><strong>Blood Group:</strong> {user.bloodGroup}</p>
+            {/* <p><strong>Quantity:</strong> {user.quantity}</p> */}
           </li>
         ))}
       </ul>
@@ -114,3 +117,4 @@ const Admin = () => {
 };
 
 export default Admin;
+
