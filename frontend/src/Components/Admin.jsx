@@ -1,6 +1,3 @@
-
-
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../CSS/Admin.css';
@@ -11,7 +8,7 @@ const Admin = () => {
   const [requests, setRequests] = useState([]);
 
   useEffect(() => {
-    // Fetch all users
+    // Fetch users
     axios.get('http://localhost:8000/admin/users')
       .then(response => {
         setUsers(response.data);
@@ -29,7 +26,7 @@ const Admin = () => {
         console.error('Error fetching blood counts:', error);
       });
 
-    // Fetch all requests
+    // Fetch requests
     axios.get('http://localhost:8000/admin/requests')
       .then(response => {
         setRequests(response.data);
@@ -42,9 +39,8 @@ const Admin = () => {
   const acceptRequest = (requestId) => {
     axios.put(`http://localhost:8000/admin/request/${requestId}/accept`)
       .then(response => {
-        console.log(response.data);
         // Update requests after accepting
-        const updatedRequests = requests.map(request => 
+        const updatedRequests = requests.map(request =>
           request._id === requestId ? { ...request, status: 'Accepted' } : request
         );
         setRequests(updatedRequests);
@@ -66,7 +62,6 @@ const Admin = () => {
   const deleteRequest = (requestId) => {
     axios.delete(`http://localhost:8000/admin/request/${requestId}`)
       .then(response => {
-        console.log(response.data);
         // Update requests after deleting
         const updatedRequests = requests.filter(request => request._id !== requestId);
         setRequests(updatedRequests);
@@ -79,42 +74,49 @@ const Admin = () => {
   return (
     <div className="container">
       <h2>All Users</h2>
-      <ul className="all-users">
+      <div className="users-list">
         {users.map(user => (
-          <li key={user._id}>
-            <p><strong>Name:</strong> {user.name}</p>
-            <p><strong>Email:</strong> {user.email}</p>
-            <p><strong>Blood Group:</strong> {user.bloodGroup}</p>
-            {/* <p><strong>Quantity:</strong> {user.quantity}</p> */}
-          </li>
+          <div className="user-card" key={user._id}>
+            <div className="user-details">
+              <p><strong>Name:</strong> {user.name}</p>
+              <p><strong>Email:</strong> {user.email}</p>
+              <p><strong>Blood Group:</strong> {user.bloodGroup}</p>
+              {/* <p><strong>Quantity:</strong> {user.quantity}</p> */}
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
 
-      <h2>Blood Counts</h2>
-      <ul>
-        {Object.entries(bloodCounts).map(([type, count]) => (
-          <li key={type}>{type}: {count}</li>
-        ))}
-      </ul>
+      <div>
+        <h2>Blood Counts</h2>
+        <ul>
+          {Object.entries(bloodCounts).map(([type, count]) => (
+            <li key={type}>{type}: {count}</li>
+          ))}
+        </ul>
+      </div>
 
-      <h2>All Requests</h2>
-      <ul>
-        {requests.map(request => (
-          <li key={request._id}>
-            {request.name} - {request.requiredbloodgroup}
-            <button 
-              onClick={() => acceptRequest(request._id)} 
-              disabled={request.status === 'Accepted'}
-            >
-              {request.status === 'Accepted' ? 'Accepted' : 'Accept'}
-            </button>
-            <button onClick={() => deleteRequest(request._id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h2>All Requests</h2>
+        <ul>
+          {requests.map(request => (
+            <li key={request._id}>
+              <h2>Name :{request.name}</h2>
+              <h3>Require Blood Group:{request.requiredbloodgroup}</h3>
+             
+              <button
+                onClick={() => acceptRequest(request._id)}
+                disabled={request.status === 'Accepted'}
+              >
+                {request.status === 'Accepted' ? 'Accepted' : 'Accept'}
+              </button>
+              <button onClick={() => deleteRequest(request._id)}>Delete</button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
 
 export default Admin;
-
