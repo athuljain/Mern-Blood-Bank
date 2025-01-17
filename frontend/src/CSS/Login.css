@@ -1,72 +1,143 @@
 /* Login.css */
 
-/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.login {
+  background-color: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
+}
+
+.h1-login {
+  color: #3a4f7a;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.h1-login::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #3a4f7a;
+  margin: 10px auto 0;
+  transition: width 0.3s ease;
+}
+
+.login:hover .h1-login::after {
+  width: 100px;
+}
+
+.login-input {
+  margin-top: 20px;
+}
+
+.login-input input {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 50px;
+  background-color: #f0f4f8;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.login-input input:focus {
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(58, 79, 122, 0.2);
+}
+
+button {
+  background-color: #3a4f7a;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+button:hover {
+  background-color: #2c3e50;
+}
+
+button:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.log-reg {
+  margin-top: 30px;
+  color: #3a4f7a;
+  font-size: 14px;
+}
+
+.log-reg a {
+  color: #3a4f7a;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.log-reg a:hover {
+  color: #2c3e50;
+}
+
+@media (max-width: 480px) {
   .login {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    padding: 30px 20px;
   }
-  
+
   .h1-login {
-    color: #dc3545; /* Red color */
-    margin-bottom: 20px;
+    font-size: 2em;
   }
-  
-  .login-input input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
-  
-  .login-input input:focus {
-    border-color: #dc3545; /* Red border on focus */
-    outline: none;
-    box-shadow: 0 0 8px rgba(220, 53, 69, 0.3);
-  }
-  
+
   button {
-    background-color: #dc3545; /* Red button */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.3s;
+    width: 100%;
   }
-  
-  button:hover {
-    background-color: #c82333; /* Darker red on hover */
-  }
-  
-  button:active {
-    transform: scale(0.95);
-  }
-  
-  .log-reg {
-    margin-top: 20px;
-    color: #333;
-  }
-  
-  .log-reg a {
-    color: #dc3545; /* Red link */
-    text-decoration: none;
-  }
-  
-  .log-reg a:hover {
-    text-decoration: underline;
-  }
-  
+}
